@@ -8,12 +8,24 @@ import AboutImage5 from "../assets/images/else2.jpg";
 
 import AboutImage6 from "../assets/images/else.jpg";
 
+import Breaks from "../assets/images/breaks.png";
+
+import AboutImage8 from "../assets/images/else6.jpg";
+import AboutImage9 from "../assets/images/else.jpg";
+
 import { FaRegCircleCheck } from "react-icons/fa6";
 import Image from "next/image";
 import "../styles/about.scss";
 import Head from "next/head";
 
-const images = [AboutImage6, AboutImage3, AboutImage4, AboutImage5];
+const images = [
+  Breaks,
+  AboutImage6,
+  AboutImage3,
+  AboutImage4,
+  AboutImage5,
+  AboutImage8,
+];
 
 export default function About() {
   const [currentIndex, setCurrentIndex] = useState(0);
