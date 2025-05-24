@@ -278,7 +278,7 @@ const reviewsData: Review[] = [
     content:
       "Highly recommend Isaiah at NexGen auto detail. His professionalism and talent are second to none. Here are some of my before and after photos. My car looks better than it did the day I drove it off the car lot.",
     service: "Interior & Exterior Detailing",
-    vehicle: "Car",
+    vehicle: "4 Door SUV",
   },
 ];
 
