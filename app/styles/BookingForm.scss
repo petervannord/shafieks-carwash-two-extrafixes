@@ -1,0 +1,233 @@
+.booking-form {
+  max-width: 700px; /* Slightly wider for better layout */
+  margin: 2rem auto;
+  padding: 2rem; /* Increased padding for a more spacious feel */
+  background: #fff; /* White background for a clean look */
+  border-radius: 12px; /* More rounded corners */
+  box-shadow: 0 6px 12px rgba(0, 0, 0, 0.15); /* Slightly stronger shadow */
+  font-family: "Arial", sans-serif; /* Professional font */
+  color: #333; /* Darker text for better readability */
+
+  h2 {
+    text-align: center;
+    margin-bottom: 1.5rem; /* More space below heading */
+    color: #2c3e50; /* Slightly different heading color */
+    font-weight: 600; /* Semi-bold heading */
+  }
+
+  .calendar-container {
+    margin: 1.5rem 0; /* More vertical space */
+    text-align: center;
+  }
+
+  form {
+    display: flex;
+    flex-direction: column;
+    gap: 1.25rem; /* Increased gap between form elements */
+
+    input,
+    textarea {
+      padding: 1rem; /* Increased padding for input fields */
+      border: 1px solid #ddd; /* Lighter border */
+      border-radius: 8px; /* More rounded input corners */
+      font-size: 1rem;
+      color: #555; /* Slightly lighter input text color */
+      transition: border-color 0.3s ease;
+
+      &:focus {
+        border-color: #007bff; /* Blue focus border */
+        outline: none; /* Remove default focus outline */
+        box-shadow: 0 0 0 2px rgba(0, 123, 255, 0.25); /* Subtle focus shadow */
+      }
+    }
+
+    fieldset {
+      border: 1px solid #ddd; /* Lighter fieldset border */
+      padding: 1.25rem; /* Increased fieldset padding */
+      border-radius: 8px; /* Rounded fieldset corners */
+      margin-bottom: 1rem; /* Space below fieldset */
+
+      legend {
+        font-weight: 600; /* Semi-bold legend */
+        padding: 0 0.75rem;
+        color: #343a40; /* Darker legend color */
+      }
+
+      .service-category {
+        margin-bottom: 1.5rem; /* More space between categories */
+        padding-bottom: 1.25rem;
+        border-bottom: 1px solid #eee; /* Very light category separator */
+
+        &:last-child {
+          border-bottom: none; /* No separator for last category */
+          margin-bottom: 0;
+          padding-bottom: 0;
+        }
+
+        h3 {
+          margin-top: 0;
+          margin-bottom: 1rem; /* Space below category title */
+          color: #495057; /* Slightly darker category title */
+          font-weight: 500; /* Medium font weight for category title */
+        }
+
+        /* Styling for Exclusive Categories (Makeover, Maintenance) */
+        &.exclusive-category {
+          background-color: #f8f9fa; /* Very light gray background for exclusive categories */
+          border: 1px solid #ddd; /* Add a subtle border to exclusive categories */
+          padding: 1.25rem;
+          border-radius: 8px;
+          margin-bottom: 1.75rem; /* More bottom margin for exclusive categories */
+          box-shadow: inset 0 0 5px rgba(0, 0, 0, 0.05); /* Subtle inset shadow */
+        }
+
+        .service-package {
+          margin-bottom: 1rem;
+
+          .service-label {
+            display: block;
+            margin-bottom: 0.75rem;
+            font-weight: 500; /* Semi-bold service label */
+            color: #343a40; /* Darker service label color */
+          }
+
+          .service-description {
+            list-style: disc; /* Use disc bullets */
+            margin-left: 25px; /* Adjusted margin for bullet points */
+            margin-bottom: 1rem;
+            font-size: 0.95rem;
+            color: #6c757d; /* Muted description color */
+            line-height: 1.6; /* Improved line height for description */
+          }
+
+          .service-sizes {
+            display: flex;
+            gap: 1.5rem; /* Increased gap between size options */
+            margin-top: 1rem;
+
+            label {
+              display: flex;
+              align-items: center;
+              gap: 0.5rem;
+              font-weight: 400; /* Normal font weight for size labels */
+              color: #495057; /* Size label color */
+            }
+          }
+        }
+      }
+    }
+
+    button[type="submit"] {
+      padding: 1rem 1.5rem; /* Adjusted button padding */
+      background: #e81c2e;
+      color: white;
+      border: none;
+      border-radius: 8px; /* Rounded button corners */
+      font-size: 1.1rem; /* Slightly larger button font */
+      font-weight: 600; /* Semi-bold button text */
+      cursor: pointer;
+      transition: background 0.3s ease, transform 0.2s ease; /* Added transform transition */
+      box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1); /* Subtle button shadow */
+
+      &:hover {
+        background: #c71626;
+        transform: translateY(-2px); /* Slight lift on hover */
+        box-shadow: 0 4px 6px rgba(0, 0, 0, 0.15); /* Slightly stronger shadow on hover */
+      }
+
+      &:disabled {
+        background-color: #aaa; /* Grayed out disabled button */
+        color: #eee;
+        cursor: not-allowed;
+        box-shadow: none;
+        transform: none;
+      }
+    }
+
+    /* Message Area for Warnings/Errors */
+    .service-message {
+      margin-top: 1rem;
+      padding: 1rem;
+      border-radius: 8px;
+      background-color: #ffebee; /* Light red background for error/warning */
+      color: #d32f2f; /* Darker red text color */
+      border: 1px solid #ef9a9a; /* Light red border */
+      font-size: 0.95rem;
+      text-align: center;
+    }
+  }
+}
+
+/* Booking Modal Styles (Overlay style - as requested) - No changes needed here */
+.booking-modal {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.6); /* Semi-transparent black overlay */
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 2000; /* Ensure it's on top */
+  animation: fadeIn 0.3s ease forwards; /* Fade-in animation */
+}
+
+.booking-modal-content {
+  background: #fff;
+  padding: 20px;
+  border-radius: 8px;
+  width: 90%; /* Adjust width as needed */
+  max-width: 700px; /* Maximum width - increased to match form */
+  max-height: 90vh; /* Maximum height relative to viewport height */
+  overflow-y: auto; /* Enable vertical scrolling if content overflows */
+  position: relative; /* For positioning close button */
+  animation: scaleIn 0.3s ease forwards; /* Scale-in animation */
+}
+
+.close-modal {
+  position: absolute;
+  top: 10px;
+  right: 10px;
+  background: none;
+  border: none;
+  font-size: 1.5rem;
+  cursor: pointer;
+}
+
+.service-addons {
+  margin-top: 0.5rem;
+  padding-left: 1rem;
+
+  h4 {
+    font-size: 1rem;
+    margin-bottom: 0.25rem;
+  }
+
+  .addon-option {
+    display: block;
+    font-size: 0.9rem;
+    margin-bottom: 0.25rem;
+  }
+}
+
+/* Animations - No changes needed here */
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+@keyframes scaleIn {
+  from {
+    transform: scale(0.9);
+    opacity: 0;
+  }
+  to {
+    transform: scale(1);
+    opacity: 1;
+  }
+}

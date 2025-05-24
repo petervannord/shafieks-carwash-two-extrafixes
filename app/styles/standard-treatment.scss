@@ -1,0 +1,50 @@
+// styles/standard-treatments.scss
+.standard-treatments {
+  max-width: 900px;
+  margin: auto;
+  padding: 20px;
+  font-family: Arial, sans-serif;
+  color: #333;
+
+  header {
+    text-align: center;
+    padding-bottom: 20px;
+
+    h5 {
+      font-size: 0.8rem;
+      color: #ffffff;
+    }
+
+    h1 {
+      font-size: 2.5rem;
+      color: #0056b3;
+    }
+  }
+
+  .treatment-card {
+    background: #f8f9fa;
+    padding: 20px;
+    border-radius: 10px;
+    margin-bottom: 20px;
+    box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
+
+    h2 {
+      color: #004085;
+      font-size: 1.8rem;
+    }
+
+    ul {
+      padding-left: 20px;
+    }
+  }
+
+  footer {
+    text-align: center;
+    margin-top: 20px;
+    a {
+      color: #007bff;
+      text-decoration: none;
+      font-weight: bold;
+    }
+  }
+}

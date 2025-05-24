@@ -1,0 +1,139 @@
+.hero {
+  background-color: var(
+    --white
+  ); /* Or whatever your intended background color is */
+  transition: all ease 0.5s;
+  padding-top: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding-bottom: 0;
+  overflow: hidden; /* Keep overflow hidden for now to avoid horizontal issues */
+}
+
+.hero-body {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  max-height: 100vh;
+  max-width: var(--max-width);
+  margin: 0 auto;
+}
+
+.hero-text {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 1;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  background: rgba(
+    0,
+    0,
+    0,
+    0.7
+  ); /* Slightly lighter dark background for text overlay */
+  padding: 20px; /* Adjust padding as needed */
+  text-align: center; /* Default to center text */
+  padding: 30px 20px; /* Add some padding to prevent text from touching edges on small screens */
+
+  h2 {
+    color: var(--red); /* Or your intended subheading color */
+    font-size: 18px;
+    font-weight: 700;
+    letter-spacing: 3px;
+    text-transform: uppercase;
+    margin-bottom: 0;
+  }
+
+  h1 {
+    color: #fff; /* Or your intended heading color */
+    font-size: 32px; /* Adjusted font size for mobile */
+    font-weight: 700;
+    margin-bottom: 20px;
+    text-transform: capitalize;
+    line-height: 1.2;
+    word-wrap: break-word; /* Prevent long words from breaking the layout */
+  }
+
+  p {
+    max-width: 400px; /* Slightly smaller max-width for text on mobile */
+    color: #fff; /* Or your intended paragraph color */
+    font-size: 16px; /* Adjusted font size for mobile */
+    margin-bottom: 40px;
+    line-height: 1.6;
+  }
+}
+
+.image {
+  position: relative;
+  z-index: 0; /* Image behind text */
+  width: 100%;
+  height: 100%;
+  max-height: 100vh;
+  overflow: hidden; /* Keep image overflow hidden */
+}
+
+.image > span {
+  /* Style next/image span wrapper */
+  position: unset !important;
+  width: 100% !important;
+  height: 100% !important;
+}
+
+.image > span > img {
+  /* Style the actual img inside next/image */
+  object-fit: cover;
+  width: 100% !important;
+  height: 100% !important;
+}
+
+/* Mobile Styling (max-width: 768px) */
+@media (max-width: 768px) {
+  .hero-text {
+    padding: 20px; /* Less padding on mobile */
+  }
+
+  h2 {
+    font-size: 16px; /* Smaller subheading for mobile */
+    letter-spacing: 2px; /* Reduced letter-spacing for smaller screens */
+  }
+
+  h1 {
+    font-size: 28px; /* Smaller heading for mobile */
+    margin-bottom: 15px; /* Adjust margin for mobile */
+  }
+
+  p {
+    font-size: 14px; /* Smaller paragraph text on mobile */
+    max-width: 350px; /* Adjust max-width of paragraph */
+    margin-bottom: 30px; /* Reduce bottom margin */
+  }
+}
+
+/* Smaller screens (max-width: 480px) */
+@media (max-width: 480px) {
+  .hero-text {
+    padding: 15px; /* Less padding on smaller screens */
+  }
+
+  h2 {
+    font-size: 14px; /* Even smaller subheading for smaller devices */
+    letter-spacing: 1px; /* Further reduced letter-spacing */
+  }
+
+  h1 {
+    font-size: 24px; /* Even smaller heading */
+    margin-bottom: 10px; /* Reduced margin */
+  }
+
+  p {
+    font-size: 13px; /* Smaller text for ultra-small screens */
+    max-width: 300px; /* Further reduced max-width for text */
+    margin-bottom: 20px; /* Reduced bottom margin */
+  }
+}

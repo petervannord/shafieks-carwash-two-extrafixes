@@ -1,0 +1,9 @@
+# *
+User-agent: *
+Allow: /
+
+# Host
+Host: https://www.nexgenautodetail.com
+
+# Sitemaps
+Sitemap: https://www.nexgenautodetail.com/sitemap.xml

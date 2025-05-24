@@ -1,0 +1,26 @@
+#nav {
+  background: transparent;
+  padding: 20px;
+  text-align: center;
+}
+
+.nav-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.return-home-button {
+  background-color: #0070f3;
+  color: #fff;
+  border: none;
+  padding: 10px 20px;
+  font-size: 16px;
+  cursor: pointer;
+  border-radius: 5px;
+  transition: background-color 0.2s ease;
+}
+
+.return-home-button:hover {
+  background-color: #005bb5;
+}

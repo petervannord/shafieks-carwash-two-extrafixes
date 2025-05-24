@@ -1,0 +1,307 @@
+// Nav.scss
+
+// ===================================================================
+// Global & Utility Styles
+// ===================================================================
+
+// Ensure the hero has a lower stacking context than the nav (if needed)
+#hero {
+  position: relative;
+  z-index: 500; // Adjust as needed
+}
+
+// ===================================================================
+// Fixed Navigation (always on top)
+// ===================================================================
+.fixed-nav {
+  position: fixed;
+  top: 0;
+  width: 100%;
+  z-index: 1000; // Ensure fixed nav is above other elements
+}
+
+// ===================================================================
+// Main Navigation Styles
+// ===================================================================
+nav {
+  position: relative;
+  z-index: 1000; // Keep nav above hero and other content
+  background: black;
+
+  .nav-body {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 20px 40px;
+
+    ol {
+      display: flex;
+      list-style: none;
+
+      li {
+        color: #ffffff;
+        margin-right: 30px;
+        font-weight: 500;
+        letter-spacing: 1px;
+        transition: color 0.3s ease;
+
+        &:hover {
+          color: var(--red);
+        }
+
+        &:last-child {
+          margin: 0;
+        }
+      }
+    }
+
+    button {
+      color: var(--blue);
+      background: var(--white);
+      padding: 15px 30px;
+      border-radius: 60px;
+      font-size: 16px;
+      font-weight: 500;
+      line-height: 1.5;
+      border: none;
+      cursor: pointer;
+      transition: background-color 0.3s ease, color 0.3s ease,
+        transform 0.3s ease, box-shadow 0.3s ease;
+
+      &:hover {
+        background: var(--red);
+        color: var(--white);
+        transform: translateY(-2px);
+        box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.2);
+      }
+    }
+  }
+
+  .mobile-nav {
+    display: none;
+  }
+
+  .mobile-menu {
+    display: none; /* Initially hide the mobile menu */
+    position: absolute;
+    display: block; /* Keep display block for structure */
+    width: 100%;
+    transition: all 0.5s ease;
+    transform: translateY(-100%); /* Slide it off-screen initially */
+    background: var(--blue);
+    z-index: 1;
+    padding-bottom: 20px;
+    opacity: 0; /* Initially make it transparent */
+    visibility: hidden; /* Initially hide it from rendering */
+    top: 100%; /* Position below the nav bar */
+    left: 0;
+    padding: 20px; /* Add some padding around the menu items */
+    box-sizing: border-box; /* Include padding in width calculation */
+
+    ol {
+      list-style: none;
+      padding: 0;
+      margin: 0;
+
+      li {
+        padding: 15px 0; /* Increase padding for better touch area */
+        border-bottom: 1px solid rgba(255, 255, 255, 0.2); /* Add subtle separators */
+        margin-bottom: 0; /* Remove default margins */
+
+        &:last-child {
+          border-bottom: none; /* Remove border from the last item */
+        }
+
+        a,
+        button.dropdown-toggle {
+          display: block; /* Make link/button full width of li */
+          color: var(--white);
+          text-decoration: none;
+          font-size: 18px; /* Increase font size for mobile */
+          font-weight: 500;
+          letter-spacing: 0.5px;
+          text-align: left; /* Align text to the left */
+          width: 100%; /* Ensure full width */
+          box-sizing: border-box; /* Include padding in width */
+          padding: 0; /* Reset padding on link/button, use li padding */
+          background: none; /* Remove background if button */
+          border: none; /* Remove border if button */
+          cursor: pointer; /* Ensure cursor is pointer for button */
+        }
+      }
+    }
+  }
+
+  .mobile-menu.open {
+    display: block; /* Keep display block for structure */
+    transform: translateY(0); /* Slide it into view when open */
+    opacity: 1; /* Make it visible when open */
+    visibility: visible; /* Make it render when open */
+  }
+
+  .menu-open {
+    display: none;
+  }
+}
+
+// ===================================================================
+// Dropdown Styles
+// ===================================================================
+.dropdown {
+  position: relative;
+
+  .dropdown-toggle {
+    background: none;
+    border: none;
+    color: white;
+    cursor: pointer;
+    font-size: 16px;
+    padding: 0 5px;
+    display: flex; // Changed to flex for centering
+    align-items: center;
+    justify-content: center; // Center the text
+    transition: color 0.3s ease;
+
+    // Create the triangle arrow using a pseudo-element
+    &::after {
+      content: "";
+      display: inline-block;
+      margin-left: 5px;
+      width: 0;
+      height: 0;
+      border-left: 5px solid transparent;
+      border-right: 5px solid transparent;
+      border-top: 5px solid white;
+      transition: transform 0.3s ease;
+    }
+  }
+
+  // When the dropdown is open, add an "active" class to rotate the arrow
+  &.active .dropdown-toggle::after {
+    transform: rotate(180deg);
+  }
+
+  .dropdown-menu {
+    position: absolute;
+    top: 100%;
+    left: 10;
+    background: rgb(0, 0, 0);
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    border-radius: 5px;
+    overflow: hidden;
+
+    z-index: 1001; // Ensure dropdown is above nav and hero
+
+    li {
+      border-bottom: 2px solid #ddd;
+      width: 100%; // Ensure the border spans the full width
+
+      &:last-child {
+        border-bottom: none;
+      }
+
+      a {
+        text-decoration: none;
+        color: #ffffff;
+        display: block;
+        padding: 10px 0; // Adjusted padding to ensure the clickable area is full height
+        transition: background 0.3s ease;
+        text-align: center; // Center the text in the dropdown menu
+      }
+
+      &:hover {
+        background: #ff04045e;
+      }
+    }
+  }
+}
+
+// ===================================================================
+// Mobile Navigation Styles & Media Queries
+// ===================================================================
+@media screen and (max-width: 890px) {
+  nav {
+    background: transparent;
+    position: fixed; /* Make mobile nav fixed too for better UX */
+    width: 100%;
+
+    .nav-body {
+      display: none;
+    }
+
+    .mobile-nav {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 20px 15px;
+
+      p {
+        font-size: 22px; /* Slightly larger "MENU" text */
+        color: var(--white);
+        font-weight: bold; /* Make "MENU" bold */
+      }
+
+      > div {
+        border-radius: 5px;
+        border: 1px solid var(--border-color);
+      }
+    }
+
+    .mobile-menu {
+      display: none; /* Initially hide the mobile menu */
+      position: absolute;
+      display: block; /* Keep display block for structure */
+      width: 100%;
+      transition: all 0.5s ease;
+      transform: translateY(-100%); /* Slide it off-screen initially */
+      background: var(--red);
+      z-index: 1;
+      padding-bottom: 20px;
+      opacity: 0; /* Initially make it transparent */
+      visibility: hidden; /* Initially hide it from rendering */
+      top: 65px; /* Position mobile menu below mobile nav bar - adjust if needed based on mobile-nav height */
+      left: 0;
+      padding: 20px; /* Add padding around the menu items */
+      box-sizing: border-box; /* Include padding in width calculation */
+    }
+
+    .mobile-menu.open {
+      display: block; /* Keep display block for structure */
+      transform: translateY(0); /* Slide it into view when open */
+      opacity: 1; /* Make it visible when open */
+      visibility: visible; /* Make it render when open */
+    }
+  }
+}
+
+/* You can remove or adjust these smaller media queries if the 890px one is sufficient */
+@media screen and (max-width: 768px) {
+  nav {
+    /* Styles inherited from 890px media query, you can add specific overrides here if needed */
+  }
+}
+
+@media screen and (max-width: 425px) {
+  nav {
+    /* Styles inherited from larger media queries, add specific overrides for 425px if needed */
+    .mobile-nav {
+      p {
+        font-size: 20px; /* Slightly smaller "MENU" text for very small screens */
+      }
+    }
+  }
+}
+
+@media screen and (max-width: 375px) {
+  nav {
+    /* Styles inherited from larger media queries, add specific overrides for 375px if needed */
+  }
+}
+
+@media screen and (max-width: 320px) {
+  nav {
+    /* Styles inherited from larger media queries, add specific overrides for 320px if needed */
+  }
+}
